@@ -1,0 +1,38 @@
+{
+  "name": "@minnek/bc-stencil-utils",
+  "version": "1.0.0",
+  "description": "Utility framework for Big Commerce Stencil Themes",
+  "main": "index.js",
+  "files": [
+    "src/",
+    "dist/"
+  ],  "scripts": {
+    "build": "babel src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Minnek-Digital-Studio/minnek-bc-stencil-utils.git"
+  },
+  "keywords": [
+    "utils",
+    "utility",
+    "framework",
+    "bigcommerce",
+    "stencil",
+    "minnek"
+  ],
+  "author": "info@minnekdigital.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Minnek-Digital-Studio/minnek-bc-stencil-utils/issues"
+  },
+  "homepage": "https://github.com/Minnek-Digital-Studio/minnek-bc-stencil-utils#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "eslint": "^8.1.0",
+    "prettier": "^2.4.1"
+  }
+}
