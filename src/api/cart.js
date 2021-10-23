@@ -36,5 +36,9 @@ export default class Cart extends Base {
 
     addMultipleItems(options = {}, callback) {
         let url = `${this.baseUrl}/carts/${cardId}items`;
+
+        this.makeRequest(url, 'POST', options, true, (err, response) => {
+            callback(err, resData);
+        });
     }
 }

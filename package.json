@@ -1,12 +1,13 @@
 {
-  "name": "@minnek/bc-stencil-utils",
+  "name": "@minnekdigital/bc-stencil-utils",
   "version": "1.0.0",
-  "description": "Utility framework for Big Commerce Stencil Themes",
+  "description": "Utilities to use with big commerce stencil themes",
   "main": "index.js",
   "files": [
     "src/",
     "dist/"
-  ],  "scripts": {
+  ],
+  "scripts": {
     "build": "babel src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -34,5 +35,6 @@
     "@babel/preset-env": "^7.15.8",
     "eslint": "^8.1.0",
     "prettier": "^2.4.1"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,7 +1,7 @@
 import Base from './base';
 import getGraphQLQueries from './helpers/graphql-queries';
 
-export default class QraphqlQueries extends Base {
+export default class GraphQL extends Base {
 
     getProductsById(vars, callback) {
         const queries = getGraphQLQueries();
