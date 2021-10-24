@@ -1,4 +1,4 @@
-import Base from './base.js';
+import Base from './base';
 
 export default class Cart extends Base {
 
@@ -11,7 +11,7 @@ export default class Cart extends Base {
 
         this.makeRequest(url, 'GET', options, true, (err, response) => {
             const resData = {
-                cartId: response.id || '',
+                cartId: response[0] ? response[0].id : '',
             }
 
             callback(err, resData);
@@ -26,19 +26,30 @@ export default class Cart extends Base {
         }
 
         this.makeRequest(url, 'GET', options, true, (err, response) => {
+            const data = response[0];
             const resData = {
-                cartTotal: response.total || parseFloat(0.00),
+                cartTotal: data.cartAmount || parseFloat(0.00),
+                cartCurency: {
+                    code: data.currency.code || null,
+                    symbol: data.currency.symbol || null,
+                }
             }
 
             callback(err, resData);
         });
     }
 
+    /**
+     * @TODO
+     *
+     * Add multiple products to cart with selected options.
+     */
     addMultipleItems(options = {}, callback) {
-        let url = `${this.baseUrl}/carts/${cardId}items`;
+        const { cartId } = options;
+        const url = `${this.baseUrl}/carts/${cartId}items`;
 
         this.makeRequest(url, 'POST', options, true, (err, response) => {
-            callback(err, resData);
+            callback(err, response);
         });
     }
 }

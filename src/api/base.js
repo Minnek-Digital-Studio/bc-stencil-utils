@@ -2,8 +2,8 @@ import request from '../helpers/request';
 
 export default class Base {
     constructor() {
-        this.version = 'v1';
-        this.baseUrl = `/api/storefront`;
+        this.baseUrl = '/api/storefront';
+        this.graphqlUrl = '/graphql';
     }
 
     /**
@@ -17,35 +17,26 @@ export default class Base {
      *
      * @return  {[type]}            [return description]
      */
-    makeRequest(url, method, options, remote, callback) {
+    makeRequest(url, method, options, callback) {
         request(url, {
             method,
-            remote,
             requestOptions: options,
         }, callback);
     }
 
-    graphqRequest(query, variables, callback) {
-        this.makeRequest(
-            this.graphqlUrl(),
-            'POST',
-            {
-                query,
-                variables,
-            },
-            false,
-            (err, response) => {
-                callback(err, response);
-            }
-        );
-
-        this.makeRequest(url, 'GET', options, true, (err, response) => {
-            const resData = {
-                cartId: response.id || '',
-            }
-
-            callback(err, resData);
+    graphqRequest(query, options, callback) {
+        const body = JSON.stringify({
+            query,
+            variables: options.variables
         });
+
+        const opts = {
+            body,
+            token: options.token,
+            isGraphql: true
+        };
+
+        this.makeRequest(this.graphqlUrl, 'POST', opts, callback);
     }
 
     /**
@@ -56,9 +47,5 @@ export default class Base {
      */
     includeOptions(url) {
         return `${url}?include=lineItems.physicalItems.options,lineItems.digitalItems.options`;
-    }
-
-    graphqlUrl() {
-        return `${this.baseUrl}/graphql`;
     }
 }

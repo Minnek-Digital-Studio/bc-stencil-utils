@@ -1,32 +1,35 @@
 import Base from './base';
-import getGraphQLQueries from './helpers/graphql-queries';
+import getGraphQLQueries from '../helpers/graphql-queries';
 
 export default class GraphQL extends Base {
 
-    getProductsById(vars, callback) {
+    getProductsById(opts = {}, callback) {
         const queries = getGraphQLQueries();
 
-        this.graphqRequest(queries.getProductsbyId(), vars, (err, res) => {
-                callback(err, res);
-            }
-        );
+        this.graphqRequest(queries.getProductsById(), opts, callback);
     }
 
-    getProductOptions(vars, callback) {
+    getProductOptions(opts = {}, callback) {
         const queries = getGraphQLQueries();
 
-        this.graphqRequest(queries.getProductOptions(), vars, (err, res) => {
-                callback(err, res);
-            }
-        );
+        this.graphqRequest(queries.getProductOptions(), opts, (err, res) => {
+            callback(err, res);
+        });
     }
 
-    getProductVariants(vars, callback) {
+    getProductVariants(opts = {}, callback) {
         const queries = getGraphQLQueries();
 
-        this.graphqRequest(queries.getProductOptions(), vars, (err, res) => {
-                callback(err, res);
-            }
-        );
+        this.graphqRequest(queries.getProductOptions(), opts, (err, res) => {
+            callback(err, res);
+        });
+    }
+
+    getProductCategories(opts = {}, callback) {
+        const queries = getGraphQLQueries();
+
+        this.graphqRequest(queries.getProductCategories(), opts, (err, res) => {
+            callback(err, res);
+        });
     }
 }
