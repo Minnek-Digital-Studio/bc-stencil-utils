@@ -2,18 +2,21 @@
   "name": "@minnekdigital/bc-stencil-utils",
   "version": "1.0.0",
   "description": "Utilities to use with big commerce stencil themes",
-  "main": "index.js",
+  "main": "src/index.js",
   "files": [
     "src/",
     "dist/"
   ],
   "scripts": {
     "build": "babel src -d dist",
+    "lint": "eslint ./src",
+    "lint--fix": "eslint ./src --fix",
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Minnek-Digital-Studio/minnek-bc-stencil-utils.git"
+    "url": "git+https://github.com/Minnek-Digital-Studio/bc-stencil-utils.git"
   },
   "keywords": [
     "utils",
@@ -21,20 +24,32 @@
     "framework",
     "bigcommerce",
     "stencil",
-    "minnek"
+    "minnekdigital"
   ],
-  "author": "info@minnekdigital.com",
-  "license": "ISC",
+  "author": "Minnek Digital",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Minnek-Digital-Studio/minnek-bc-stencil-utils/issues"
+    "url": "https://github.com/Minnek-Digital-Studio/bc-stencil-utils/issues"
   },
-  "homepage": "https://github.com/Minnek-Digital-Studio/minnek-bc-stencil-utils#readme",
+  "homepage": "https://github.com/Minnek-Digital-Studio/bc-stencil-utils#readme",
   "devDependencies": {
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.8",
+    "@babel/eslint-parser": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
-    "eslint": "^8.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "whatwg-fetch": "^3.6.2"
+  },
+  "engines": {
+    "node": ">=10.0.0 <15.0.0"
+  }
 }
