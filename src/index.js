@@ -1,11 +1,4 @@
-export function getCartId() {
+import api from './api';
+import helpers from './helpers';
 
-}
-
-export function getCartTotal() {
-
-}
-
-export function updateTopCartTotal($document, total) {
-    $document.trigger('cart-total-update', total);
-}
+export default { api, helpers };

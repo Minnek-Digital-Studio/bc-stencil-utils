@@ -16,8 +16,6 @@ export default function getGraphQLQueries() {
                                 }
                                 name
                                 entityId
-                                addToCartUrl
-                                addToWishlistUrl
                                 path
                                 sku
                                 prices {
