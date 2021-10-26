@@ -1,8 +1,22 @@
 import 'whatwg-fetch';
 import stringify from './query-string';
 
+/**
+ * Validate HTTP methods.
+ *
+ * @param   String  method  The HTTP method.
+ * @return  Boolean         Whether the method is valid.
+ */
 const isValidHttpMethod = (method) => ['GET', 'POST', 'PUT', 'DELETE'].includes(method);
 
+/**
+ * HTTP request.
+ *
+ * @param   String    relativeUrl  The endpoint URL.
+ * @param   Object    opts         THe request options.
+ * @param   Function  callback     The callback function.
+ * @return  Object                 The callback function with json data.
+ */
 export default function request(relativeUrl, opts, callback) {
     const defaultOptions = {
         method: 'GET',

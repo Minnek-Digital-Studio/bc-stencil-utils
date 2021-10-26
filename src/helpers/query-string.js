@@ -74,6 +74,7 @@ function stringify(object, options = { filterValues: false, arrayIndex: false })
     });
 
     const keys = Object.keys(objectCopy);
+
     keys.sort();
 
     return keys.map((key) => {

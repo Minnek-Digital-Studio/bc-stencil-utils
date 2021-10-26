@@ -1,3 +1,7 @@
+/**
+ * Common GrahQL Queries.
+ */
+
 export default function getGraphQLQueries() {
     return {
         /**
@@ -97,8 +101,18 @@ export default function getGraphQLQueries() {
          */
         getProductVariants: () => ``,
 
+        /**
+         * Get product prices including bulk pricing if is available.
+         *
+         * @return  Object  GraphQL query object.
+         */
         getProductPrices: () => ``,
 
+        /**
+         * Get available product images gallery.
+         *
+         * @return  Object  GraphQL query object.
+         */
         getProductImages: () => ``,
 
         /**
@@ -124,5 +138,12 @@ export default function getGraphQLQueries() {
                     }
                 }
             }`,
+
+        /**
+         * Get available product custom fields.
+         *
+         * @return  Object  GraphQL query object.
+         */
+        getProductCustomFields: () => ``
     }
 }
