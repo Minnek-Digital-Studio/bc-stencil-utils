@@ -1,2 +1,3 @@
-# minnek-bc-stencil-utils
-Utility library for the Stencil theme framework.
+# BC Stencil Utils
+
+Utilities to use with big commerce stencil themes.
